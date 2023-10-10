@@ -1,4 +1,4 @@
-"use client";
+
 const IS_SERVER = typeof window === "undefined";
 
 // export default function getUrl() {
@@ -24,9 +24,9 @@ export const getLink = () => {
 
   //const url = "http://localhost:3000";
 
-  //if (typeof window !== "undefined") {
+  if (typeof window !== "undefined") {
   baseUrl = window.location.hostname + ":" + window.location.port;
-  //}
+  }
 
   return baseUrl;
 };
