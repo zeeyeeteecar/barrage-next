@@ -15,12 +15,17 @@ const IS_SERVER = typeof window === "undefined";
 // }
 
 export const getLink = () => {
-  const baseUrl = IS_SERVER
-    ? "http://localhost:3000"
-    : window.location.hostname + ":" + window.location.port;
+  let baseUrl = null;
+  // const baseUrl = IS_SERVER
+  //   ? "http://localhost:3000"
+  //   : window.location.hostname + ":" + window.location.port;
   // remaining code of the component
-  console.log("baseUrl", baseUrl);
 
   //const url = "http://localhost:3000";
+
+  if (typeof window !== "undefined") {
+    baseUrl = window.location.hostname + ":" + window.location.port;
+  }
+
   return baseUrl;
 };
