@@ -35,7 +35,7 @@ const dataFilePath = path.join(process.cwd(), "/src/app/api/barrage/data.json");
 //const dataFilePath = path.join(process.cwd(), "/public/json/data.json");
 
 export async function GET() {
-  const jsonData = await fsPromises.readFile(dataFilePath);
+  const jsonData = await fsPromises.readFile(dataFilePath, "utf8");
   //const file = await fs.readFile("http://localhost:3000/data.json", "utf8");
   //const res = await fetch(DATA_SOURCE_URL);
   //const todos = await res.json();
