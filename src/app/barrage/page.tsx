@@ -1,7 +1,10 @@
 import React from "react";
+import CurrentUrl from "./components/CurrentUrl";
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/barrage");
+  const hostname = window.location.hostname;
+  const port = window.location.port;
+  const res = await fetch("https://" + hostname + ":" + port + "/api/barrage");
   //const res = await fetch("http://localhost:3000/json/data.json");
   if (typeof res === "undefined") {
     throw new Error("Failed to fetch data");
@@ -18,6 +21,7 @@ export default async function FetchJson() {
     <div className="w-screen h-screen border-2 bg-slate-300  flex flex-col items-center justify-center ">
       {JSON.stringify(barrages)}
       <h1 className=" border-2  w-[600px] ">All Ninjas</h1>
+      <CurrentUrl />
 
       {barrages &&
         barrages.map((barrage: any, key: number) => {
