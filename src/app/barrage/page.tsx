@@ -5,7 +5,7 @@ import absoluteUrl from "next-absolute-url";
 async function getData() {
   //const res = await fetch(getLink() + "/api/barrage");
 
-  const res = await fetch("barrage-next.vercel.app" + "/api/barrage");
+  const res = await fetch("https://barrage-next.vercel.app" + "/api/barrage");
   //const res = await fetch("http://localhost:3000/api/barrage");
 
   if (typeof res === "undefined") {
