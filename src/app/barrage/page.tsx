@@ -3,9 +3,8 @@ import { getLink } from "../utils/getUrl";
 
 async function getData() {
   //const res = await fetch(getLink() + "/api/barrage");
-  const res = await fetch(
-    (getLink() ? getLink() : "http://localhost:3000") + "/api/barrage"
-  );
+
+  const res = await fetch(getLink() + "/api/barrage");
   //const res = await fetch("http://localhost:3000/api/barrage");
 
   if (typeof res === "undefined") {
@@ -16,19 +15,15 @@ async function getData() {
 }
 
 export default async function FetchJson() {
-  // const lk =
-  //   (getLink() ? "http://localhost:3000" : "http://localhost:3000") +
-  //   "/api/barrage";
-
-  const lk = (getLink() ? getLink() : "http://localhost:3000") + "/api/barrage";
-
   const barrages = await getData();
 
   return (
     <div className="w-screen h-screen border-2 bg-slate-300  flex flex-col items-center justify-center ">
       {JSON.stringify(barrages)}
       <h1 className=" border-2  w-[600px] ">All Ninjas</h1>
-      {lk}
+
+      <div>{getLink()}</div>
+
       {barrages &&
         barrages.map((barrage: any, key: number) => {
           return (
