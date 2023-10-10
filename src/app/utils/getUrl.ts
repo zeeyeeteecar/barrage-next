@@ -16,7 +16,7 @@ const IS_SERVER = typeof window === "undefined";
 
 export const getLink = () => {
   const baseUrl = IS_SERVER
-    ? window.location.hostname + ":" + window.location.port
+    ? "http://localhost:3000"
     : window.location.hostname + ":" + window.location.port;
   // remaining code of the component
   console.log("baseUrl", baseUrl);
